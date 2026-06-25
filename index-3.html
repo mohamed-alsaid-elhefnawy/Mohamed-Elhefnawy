@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Conveyor Belt Control | Mohamed Elhefnawy</title>
+<meta name="description" content="Automated conveyor belt system using Allen-Bradley PLC with speed control, fault detection, emergency stop logic, and remote monitoring."/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#c8ff00;--bg:#0d0d0d;--card:#161616;--card-border:rgba(255,255,255,.07);--muted:#666;--light:#e2e2e2;--font:'Outfit',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--light);overflow-x:hidden;min-height:100vh}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#000}::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px}
+.top-bar{position:fixed;top:0;left:0;right:0;height:56px;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;padding:0 2rem;z-index:100;gap:1rem}
+.back-btn{display:inline-flex;align-items:center;gap:7px;color:rgba(255,255,255,.5);text-decoration:none;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:color .2s}
+.back-btn:hover{color:var(--green)}.back-btn svg{transition:transform .2s}.back-btn:hover svg{transform:translateX(-3px)}
+.top-bar-sep{color:rgba(255,255,255,.15)}.top-bar-title{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.project-hero{position:relative;height:70vh;min-height:420px;overflow:hidden;display:flex;align-items:flex-end;padding:56px 0 4rem}
+.project-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a1a0a 0%,#0d1f0d 50%,#0a100a 100%)}
+.project-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,255,0,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(200,255,0,.028) 1px,transparent 1px);background-size:55px 55px;pointer-events:none;z-index:1}
+.project-hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(200,255,0,.06) 0%,transparent 70%);pointer-events:none;z-index:1}
+.project-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 0%,rgba(13,13,13,.2) 55%,transparent 100%);pointer-events:none;z-index:2}
+.project-hero-content{position:relative;z-index:3;max-width:1100px;margin:0 auto;padding:0 2rem;width:100%}
+.project-number{display:inline-flex;align-items:center;gap:8px;font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+.project-number::before{content:'';display:block;width:28px;height:1.5px;background:var(--green)}
+.project-hero-title{font-size:clamp(2.4rem,6vw,4.5rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;margin-bottom:1.2rem}
+.project-hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{padding:5px 14px;border-radius:999px;border:1px solid rgba(200,255,0,.3);background:rgba(200,255,0,.06);font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.project-body{max-width:1100px;margin:0 auto;padding:4rem 2rem 6rem}
+.project-grid{display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start}
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:1.4rem}
+.section-label .slash{color:var(--green);font-weight:900;font-style:italic;font-size:1.1rem}
+.section-label h2{font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+.project-overview{font-size:.9rem;line-height:1.85;color:#aaa;margin-bottom:3rem}
+.project-overview strong{color:#fff}
+.features-list{list-style:none;display:flex;flex-direction:column;gap:1rem;margin-bottom:3rem}
+.features-list li{display:flex;align-items:flex-start;gap:12px;font-size:.87rem;color:#bbb;line-height:1.6}
+.feature-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);flex-shrink:0;margin-top:6px}
+.project-sidebar{position:sticky;top:80px;display:flex;flex-direction:column;gap:1.4rem}
+.info-card{background:var(--card);border:1px solid var(--card-border);border-radius:18px;padding:1.8rem}
+.info-card h3{font-size:.65rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.82rem}
+.info-row:last-child{border-bottom:none}.info-row .key{color:var(--muted)}.info-row .val{color:#fff;font-weight:600;text-align:right}
+.tech-pills{display:flex;flex-wrap:wrap;gap:7px}
+.tech-pill{padding:5px 12px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-size:.67rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#ddd;transition:border-color .2s,color .2s}
+.tech-pill:hover{border-color:var(--green);color:var(--green)}
+.status-badge{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;color:var(--green)}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+/* ── Tablet ── */
+@media(max-width:860px){
+  .project-grid{grid-template-columns:1fr}
+  .project-sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+}
+/* ── Mobile ── */
+@media(max-width:680px){
+  .top-bar-sep,.top-bar-title{display:none}
+  .top-bar{padding:0 1.2rem}
+  .project-hero{height:58vh;min-height:300px}
+  .project-hero-content{padding:0 1.2rem}
+  .project-hero-title{font-size:clamp(1.8rem,9vw,3rem);margin-bottom:.9rem}
+  .project-number{font-size:.6rem;margin-bottom:.7rem}
+  .tag{padding:4px 11px;font-size:.58rem;letter-spacing:.1em}
+  .project-body{padding:2.8rem 1.2rem 4.5rem}
+  .project-grid{gap:2rem}
+  .project-sidebar{grid-template-columns:1fr}
+  .info-card{padding:1.4rem 1.2rem}
+  .project-overview{font-size:.86rem;margin-bottom:2rem}
+  .features-list{margin-bottom:2rem}
+  .features-list li{font-size:.83rem}
+  .section-label{margin-bottom:1rem}
+}
+/* ── Small Mobile ── */
+@media(max-width:420px){
+  .project-hero{height:50vh;min-height:260px}
+  .project-hero-title{font-size:clamp(1.55rem,10vw,2.4rem)}
+  .project-hero-tags{gap:5px}
+  .tag{padding:4px 9px;font-size:.54rem}
+  .project-body{padding:2rem 1rem 4rem}
+  .info-row{flex-wrap:wrap;gap:2px}
+  .info-row .val{text-align:left}
+  .tech-pill{font-size:.62rem;padding:4px 10px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="../index.html" class="back-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    Back
+  </a>
+  <span class="top-bar-sep">/</span>
+  <span class="top-bar-title">Conveyor Belt Control</span>
+</div>
+
+<section class="project-hero">
+  <div class="project-hero-bg"></div>
+  <div class="project-hero-grid"></div>
+  <div class="project-hero-glow"></div>
+  <div class="project-hero-content">
+    <div class="project-number">Project #03</div>
+    <h1 class="project-hero-title">Conveyor Belt Control</h1>
+    <div class="project-hero-tags">
+      <span class="tag">Allen-Bradley</span>
+      <span class="tag">PLC</span>
+      <span class="tag">Speed Control</span>
+      <span class="tag">Safety Logic</span>
+    </div>
+  </div>
+</section>
+
+<main class="project-body">
+  <div class="project-grid">
+    <div>
+      <div class="section-label"><span class="slash">/</span><h2>Project Overview</h2></div>
+      <p class="project-overview">
+        The <strong>Conveyor Belt Control</strong> project delivers a robust, safety-first automated conveyor system designed for a high-volume industrial facility. The system was programmed on an <strong>Allen-Bradley PLC</strong> and provides complete control over belt speed, direction, and emergency stop sequences across multiple conveyor segments.<br><br>
+        Special emphasis was placed on fail-safe logic and fault diagnostics, ensuring that any mechanical or electrical fault triggers immediate isolation with detailed error codes displayed on the operator HMI — minimizing downtime and protecting personnel.
+      </p>
+      <div class="section-label"><span class="slash">/</span><h2>Key Features</h2></div>
+      <ul class="features-list">
+        <li><span class="feature-dot"></span>Variable speed drive (VFD) integration for smooth belt speed control</li>
+        <li><span class="feature-dot"></span>Multi-zone emergency stop (E-Stop) logic with hard-wired safety relays</li>
+        <li><span class="feature-dot"></span>Automated fault detection: belt slip, overload, and jam conditions</li>
+        <li><span class="feature-dot"></span>Interlocked startup sequence ensuring safe ordered belt activation</li>
+        <li><span class="feature-dot"></span>Remote monitoring dashboard with live belt status and fault history</li>
+        <li><span class="feature-dot"></span>Maintenance mode with manual jog controls for technicians</li>
+        <li><span class="feature-dot"></span>Production counter integration for throughput reporting</li>
+      </ul>
+    </div>
+    <aside class="project-sidebar">
+      <div class="info-card">
+        <h3>Project Info</h3>
+        <div class="info-row"><span class="key">Status</span><span class="val"><span class="status-badge"><span class="status-dot"></span>Completed</span></span></div>
+        <div class="info-row"><span class="key">Category</span><span class="val">Industrial Automation</span></div>
+        <div class="info-row"><span class="key">Platform</span><span class="val">Studio 5000</span></div>
+        <div class="info-row"><span class="key">Controller</span><span class="val">Allen-Bradley</span></div>
+        <div class="info-row"><span class="key">Drive</span><span class="val">PowerFlex VFD</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Technologies Used</h3>
+        <div class="tech-pills">
+          <span class="tech-pill">Studio 5000</span>
+          <span class="tech-pill">Allen-Bradley</span>
+          <span class="tech-pill">PowerFlex</span>
+          <span class="tech-pill">VFD</span>
+          <span class="tech-pill">Safety Relay</span>
+          <span class="tech-pill">Ladder Logic</span>
+          <span class="tech-pill">EtherNet/IP</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+</body>
+</html>
