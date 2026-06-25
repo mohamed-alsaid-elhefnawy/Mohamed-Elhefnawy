@@ -28,6 +28,12 @@
             --muted: #666;
             --light: #e2e2e2;
             --font: 'Outfit', sans-serif;
+
+            /* Layout alignment */
+            --section-max: 1100px;
+            --section-pad-x: clamp(1.2rem, 5vw, 2.5rem);
+            --section-pad-y: 5rem;
+            --section-gap: 2.8rem;
         }
 
         html {
@@ -227,7 +233,7 @@
         /* ═══════════════════════════ HERO ══════════════════════════════════ */
         #hero {
             min-height: 100vh;
-            padding-top: 62px;
+            padding: 62px var(--section-pad-x) 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -256,9 +262,9 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
-            max-width: 1280px;
+            max-width: var(--section-max);
             margin: auto;
-            padding: 4rem 5vw;
+            padding: 4rem 0;
             gap: clamp(2rem, 6vw, 5rem);
         }
 
@@ -571,7 +577,7 @@
             .hero-inner {
                 flex-direction: column-reverse;
                 align-items: center;
-                padding: 4rem 1.5rem 3rem;
+                padding: 4rem 0 3rem;
                 text-align: center;
                 gap: 3rem;
                 margin: auto;
@@ -707,12 +713,12 @@
 
         /* ── Projects Section ──────────────────────────────────────────── */
         #projects {
-            padding: 5rem 2rem 4rem;
+            padding: var(--section-pad-y) var(--section-pad-x) 4rem;
             background: var(--bg);
         }
 
         .projects-inner {
-            max-width: 1100px;
+            max-width: var(--section-max);
             margin: 0 auto;
         }
 
@@ -724,16 +730,18 @@
 
         /* Section headings matching reference design */
         .projects-heading,
-        .education-heading {
+        .education-heading,
+        .certificates-heading {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 2.8rem;
+            margin-bottom: var(--section-gap);
             width: 100%;
         }
 
         .projects-heading .slash,
-        .education-heading .slash {
+        .education-heading .slash,
+        .certificates-heading .slash {
             color: var(--green);
             font-size: clamp(1.4rem, 2.5vw, 1.8rem);
             font-weight: 900;
@@ -742,7 +750,8 @@
         }
 
         .projects-heading h2,
-        .education-heading h2 {
+        .education-heading h2,
+        .certificates-heading h2 {
             font-size: clamp(1.1rem, 2.3vw, 1.45rem);
             font-weight: 900;
             font-style: italic;
@@ -754,7 +763,8 @@
         }
 
         .projects-heading::after,
-        .education-heading::after {
+        .education-heading::after,
+        .certificates-heading::after {
             content: '';
             flex-grow: 1;
             height: 1px;
@@ -987,12 +997,6 @@
         /* Responsive */
         @media (max-width: 750px) {
 
-            /* Give wrapper horizontal space so outside arrows don't clip */
-            #projects {
-                padding-left: 2.4rem;
-                padding-right: 2.4rem;
-            }
-
             .slide.active {
                 flex-direction: column;
                 min-height: unset;
@@ -1041,7 +1045,7 @@
 
         @media (max-width: 480px) {
             #projects {
-                padding: 3rem 1.4rem 2.5rem;
+                padding: 3rem var(--section-pad-x) 2.5rem;
             }
 
             .slide-img {
@@ -1058,13 +1062,13 @@
 
         /* ── Education Section ────────────────────────────────────────── */
         #education {
-            padding: 6rem 2rem 7rem;
+            padding: 6rem var(--section-pad-x) 7rem;
             background: var(--bg);
             border-top: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .education-inner {
-            max-width: 1100px;
+            max-width: var(--section-max);
             margin: 0 auto;
         }
 
@@ -1198,12 +1202,12 @@
         /* ── Footer ────────────────────────────────────────────────────── */
         footer {
             background: #000000;
-            padding: 5rem 2rem 3rem;
+            padding: var(--section-pad-y) var(--section-pad-x) 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         .footer-inner {
-            max-width: 1100px;
+            max-width: var(--section-max);
             margin: 0 auto;
         }
 
@@ -1387,50 +1391,14 @@
 
         /* ── Certificates Section ─────────────────────────────────────────── */
         #certificates {
-            padding: 5rem 2rem 6rem;
+            padding: var(--section-pad-y) var(--section-pad-x) 6rem;
             background: var(--bg);
             border-top: 1px solid rgba(255, 255, 255, 0.02);
         }
 
         .certificates-inner {
-            max-width: 1100px;
+            max-width: var(--section-max);
             margin: 0 auto;
-        }
-
-        .certificates-heading,
-        .cert-section-heading {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 2.8rem;
-            width: 100%;
-        }
-
-        .certificates-heading .slash {
-            color: var(--green);
-            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-            font-weight: 900;
-            font-style: italic;
-            line-height: 1;
-        }
-
-        .certificates-heading h2 {
-            font-size: clamp(1.1rem, 2.3vw, 1.45rem);
-            font-weight: 900;
-            font-style: italic;
-            color: #fff;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            margin: 0;
-            white-space: nowrap;
-        }
-
-        .certificates-heading::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.08);
-            margin-left: 1.5rem;
         }
 
         /* Section top bar: nav left + hours right */
@@ -2196,11 +2164,11 @@
 
         @media (max-width: 600px) {
             #certificates {
-                padding: 4rem 1.2rem 4.5rem;
+                padding: 4rem var(--section-pad-x) 4.5rem;
             }
 
             .cert-dashboard {
-                padding: 1.8rem 1.2rem;
+                padding: 1.8rem var(--section-pad-x);
                 border-radius: 18px;
             }
 
@@ -2296,6 +2264,136 @@
                 min-width: 110px;
                 padding: 5px 10px;
                 font-size: 0.6rem;
+            }
+        }
+
+        /* ═══════════════════════════ GLOBAL RESPONSIVE ═════════════════════ */
+        @media (max-width: 900px) {
+            .education-card {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        @media (max-width: 750px) {
+            .education-card {
+                padding: 2rem 1.5rem;
+                gap: 2rem;
+            }
+
+            .education-log-container {
+                gap: 1.5rem;
+            }
+
+            .footer-grid {
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .education-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.8rem var(--section-pad-x);
+                gap: 1.8rem;
+            }
+
+            .education-log-container {
+                width: 100%;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+
+            .education-temporal-log {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .education-years {
+                align-items: flex-start;
+            }
+
+            .education-divider {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-cv-card {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                margin-top: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-fn,
+            .nav-ln {
+                font-size: .85rem;
+            }
+
+            .nav-sub {
+                font-size: .42rem;
+                letter-spacing: .12em;
+            }
+
+            .btn-resume {
+                padding: 6px 12px;
+                font-size: .62rem;
+                gap: 5px;
+            }
+
+            .btn-resume svg {
+                width: 11px;
+                height: 11px;
+            }
+
+            .education-card {
+                padding: 1.6rem var(--section-pad-x);
+            }
+
+            .reveal-text {
+                font-size: clamp(1.6rem, 8vw, 2.2rem);
+            }
+
+            .education-degree {
+                font-size: 0.7rem;
+            }
+
+            .education-years {
+                font-size: clamp(1.4rem, 6vw, 1.8rem);
+            }
+
+            .footer-fn,
+            .footer-ln {
+                font-size: 1.05rem;
+            }
+
+            .footer-desc {
+                font-size: 0.75rem;
+                margin-top: 1.4rem;
+            }
+
+            .footer-col h5 {
+                margin-bottom: 1.4rem;
+            }
+
+            .footer-links {
+                gap: 0.9rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .nav-sub {
+                display: none;
+            }
+
+            .nav-brand {
+                padding: 0 10px 0 6px;
             }
         }
     </style>
@@ -2451,7 +2549,7 @@
                 <!-- Slide 1 -->
                 <div class="slide active" id="slide-1">
                     <div class="slide-img">
-                        <img src="project 1/city.png" alt="Smart Desert City">
+                        <img src="city.png" alt="Smart Desert City">
                     </div>
                     <div class="slide-info">
                         <div class="slide-number">Project #1</div>
@@ -2459,21 +2557,21 @@
                         <p class="slide-desc">Design and implementation of a fully automated control system using
                             Siemens TIA Portal with real-time SCADA monitoring, fault detection, and remote access
                             capabilities.</p>
-                        <a href="project 1/index.html" class="slide-btn">View Project</a>
+                        <a href="index-1.html" class="slide-btn">View Project</a>
                     </div>
                 </div>
 
                 <!-- Slide 2 -->
                 <div class="slide" id="slide-2">
                     <div class="slide-img">
-                        <img src="project 2/cnc.jpg" alt="HMI Dashboard Design">
+                        <img src="cnc.jpg" alt="HMI Dashboard Design">
                     </div>
                     <div class="slide-info">
                         <div class="slide-number">Project #2</div>
                         <h3 class="slide-title">HMI Dashboard Design</h3>
                         <p class="slide-desc">Custom HMI interface design for process visualization, alarm management,
                             and operator interaction on a manufacturing production line.</p>
-                        <a href="project 2/index.html" class="slide-btn">View Project</a>
+                        <a href="index-2.html" class="slide-btn">View Project</a>
                     </div>
                 </div>
 
@@ -2488,7 +2586,7 @@
                         <h3 class="slide-title">Conveyor Belt Control</h3>
                         <p class="slide-desc">Automated conveyor belt system using Allen-Bradley PLC with speed control,
                             fault detection, emergency stop logic, and remote monitoring capabilities.</p>
-                        <a href="project 3/index.html" class="slide-btn">View Project</a>
+                        <a href="index-3.html" class="slide-btn">View Project</a>
                     </div>
                 </div>
 
@@ -2503,7 +2601,7 @@
                         <h3 class="slide-title">SCADA Monitoring System</h3>
                         <p class="slide-desc">Real-time SCADA monitoring platform for industrial plant operations
                             including data logging, trend analysis, alarm management, and remote visualization.</p>
-                        <a href="project 4/index.html" class="slide-btn">View Project</a>
+                        <a href="index-4.html" class="slide-btn">View Project</a>
                     </div>
                 </div>
 
@@ -2773,7 +2871,7 @@
 
             <!-- Certificate image -->
             <div class="cert-modal-img-wrapper">
-                <img id="certModalImg" src="certificate/plc_certificate.png" alt="Certificate" />
+                <img id="certModalImg" src="plc_certificate.png" alt="Certificate" />
             </div>
 
             <!-- Bottom bar -->
@@ -2782,7 +2880,7 @@
                     <span class="cert-modal-status-dot"></span>
                     Verified Certificate
                 </div>
-                <a id="certModalDownload" href="certificate/plc_certificate.png" download
+                <a id="certModalDownload" href="plc_certificate.png" download
                     class="cert-modal-download">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -3019,11 +3117,11 @@
     <script>
         // ── Certificates Stepper ──────────────────────────────────────────
         const CERT_DATA = [
-            { label: 'PLC Programming', img: 'certificate/plc_certificate.png', code: 'CERT-001' },
-            { label: 'Embedded Systems', img: 'certificate/embedded_certificate.png', code: 'CERT-002' },
-            { label: 'CNC Machining', img: 'certificate/cnc_certificate.png', code: 'CERT-003' },
-            { label: 'AutoCAD Electrical', img: 'certificate/autocad_certificate.png', code: 'CERT-004' },
-            { label: 'SolidWorks', img: 'certificate/solidworks_certificate.png', code: 'CERT-005' },
+            { label: 'PLC Programming', img: 'plc_certificate.png', code: 'CERT-001' },
+            { label: 'Embedded Systems', img: 'embedded_certificate.png', code: 'CERT-002' },
+            { label: 'CNC Machining', img: 'cnc_certificate.png', code: 'CERT-003' },
+            { label: 'AutoCAD Electrical', img: 'autocad_certificate.png', code: 'CERT-004' },
+            { label: 'SolidWorks', img: 'solidworks_certificate.png', code: 'CERT-005' },
         ];
 
         let currentCertStep = 0;
