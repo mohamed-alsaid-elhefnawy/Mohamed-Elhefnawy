@@ -225,7 +225,7 @@
             width: 36px;
             height: 36px;
             background: transparent;
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 10px;
             cursor: pointer;
             padding: 0;
@@ -233,18 +233,33 @@
             flex-shrink: 0;
             transition: border-color .25s;
         }
-        .nav-hamburger:hover { border-color: var(--green); }
+
+        .nav-hamburger:hover {
+            border-color: var(--green);
+        }
+
         .nav-hamburger span {
             display: block;
             width: 18px;
             height: 1.5px;
-            background: rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 2px;
             transition: transform .35s ease, opacity .25s ease, background .25s;
         }
-        .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: var(--green); }
-        .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-        .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: var(--green); }
+
+        .nav-hamburger.open span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+            background: var(--green);
+        }
+
+        .nav-hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.open span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+            background: var(--green);
+        }
 
         /* ── Mobile full-screen drawer ── */
         .nav-drawer {
@@ -252,7 +267,7 @@
             position: fixed;
             inset: 0;
             z-index: 998;
-            background: rgba(8,8,8,0.97);
+            background: rgba(8, 8, 8, 0.97);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             flex-direction: column;
@@ -263,6 +278,7 @@
             pointer-events: none;
             transition: opacity .35s ease;
         }
+
         .nav-drawer.open {
             display: flex;
             opacity: 1;
@@ -272,13 +288,18 @@
         .nav-drawer a {
             font-size: clamp(1.6rem, 7vw, 2.2rem);
             font-weight: 900;
-            color: rgba(255,255,255,0.55);
+            color: rgba(255, 255, 255, 0.55);
             text-decoration: none;
             letter-spacing: .06em;
             text-transform: uppercase;
             transition: color .25s, transform .25s;
         }
-        .nav-drawer a:hover { color: var(--green); transform: translateX(8px); }
+
+        .nav-drawer a:hover {
+            color: var(--green);
+            transform: translateX(8px);
+        }
+
         .nav-drawer .drawer-resume {
             display: inline-flex;
             align-items: center;
@@ -295,12 +316,22 @@
             margin-top: 1rem;
             transition: background .25s, color .25s;
         }
-        .nav-drawer .drawer-resume:hover { background: var(--green); color: #0d0d0d; transform: none; }
+
+        .nav-drawer .drawer-resume:hover {
+            background: var(--green);
+            color: #0d0d0d;
+            transform: none;
+        }
 
         /* On desktop the drawer is always hidden */
         @media (min-width: 681px) {
-            .nav-drawer { display: none !important; }
-            .nav-hamburger { display: none !important; }
+            .nav-drawer {
+                display: none !important;
+            }
+
+            .nav-hamburger {
+                display: none !important;
+            }
         }
 
         /* Mobile nav */
@@ -484,8 +515,8 @@
             position: relative;
             overflow: hidden;
             transition: border-color .35s ease,
-                        box-shadow   .35s ease,
-                        transform    .28s cubic-bezier(0.34, 1.56, 0.64, 1);
+                box-shadow .35s ease,
+                transform .28s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         /* Liquid fill */
@@ -619,10 +650,21 @@
         }
 
         @keyframes float {
-            0%   { transform: rotate(var(--rot)) translateY(0px)  scale(1); }
-            30%  { transform: rotate(var(--rot)) translateY(-6px) scale(1.025); }
-            60%  { transform: rotate(var(--rot)) translateY(-10px) scale(1.04); }
-            100% { transform: rotate(var(--rot)) translateY(0px)  scale(1); }
+            0% {
+                transform: rotate(var(--rot)) translateY(0px) scale(1);
+            }
+
+            30% {
+                transform: rotate(var(--rot)) translateY(-6px) scale(1.025);
+            }
+
+            60% {
+                transform: rotate(var(--rot)) translateY(-10px) scale(1.04);
+            }
+
+            100% {
+                transform: rotate(var(--rot)) translateY(0px) scale(1);
+            }
         }
 
         .float-badge {
@@ -677,43 +719,91 @@
                 width: 100%;
             }
 
-            .hero-role { justify-content: center; }
-            .hero-socials { justify-content: center; }
-            .hero-bio { max-width: 100%; }
+            .hero-role {
+                justify-content: center;
+            }
+
+            .hero-socials {
+                justify-content: center;
+            }
+
+            .hero-bio {
+                max-width: 100%;
+            }
 
             .hero-right {
                 width: min(280px, 70vw);
             }
 
             /* pull float badges inside the card to avoid h-scroll */
-            .fb-tl { left: -5%; top: 4%; }
-            .fb-tr { right: -5%; top: 28%; }
-            .fb-bl { left: -6%; bottom: 22%; }
-            .fb-br { right: -5%; bottom: 6%; }
+            .fb-tl {
+                left: -5%;
+                top: 4%;
+            }
+
+            .fb-tr {
+                right: -5%;
+                top: 28%;
+            }
+
+            .fb-bl {
+                left: -6%;
+                bottom: 22%;
+            }
+
+            .fb-br {
+                right: -5%;
+                bottom: 6%;
+            }
         }
 
         @media (max-width: 600px) {
-            .hero-right { width: min(240px, 65vw); }
+            .hero-right {
+                width: min(240px, 65vw);
+            }
 
             .float-badge {
                 width: 36px;
                 height: 36px;
                 border-radius: 9px;
             }
-            .badge-logo svg { width: 17px; height: 17px; }
-            .badge-text { font-size: .36rem; }
+
+            .badge-logo svg {
+                width: 17px;
+                height: 17px;
+            }
+
+            .badge-text {
+                font-size: .36rem;
+            }
 
             /* keep badges fully inside card on small phones */
-            .fb-tl { left: 2%; top: 2%; }
-            .fb-tr { right: 2%; top: 10%; }
-            .fb-bl { left: 2%; bottom: 10%; }
-            .fb-br { right: 2%; bottom: 2%; }
+            .fb-tl {
+                left: 2%;
+                top: 2%;
+            }
+
+            .fb-tr {
+                right: 2%;
+                top: 10%;
+            }
+
+            .fb-bl {
+                left: 2%;
+                bottom: 10%;
+            }
+
+            .fb-br {
+                right: 2%;
+                bottom: 2%;
+            }
         }
 
         @media (max-width: 520px) {
             .hero-fn {
                 font-size: clamp(2.6rem, 13vw, 4rem);
             }
+
             .hero-ln {
                 font-size: clamp(2.6rem, 13vw, 4rem);
                 -webkit-text-stroke: 1.5px #ffffff;
@@ -727,8 +817,15 @@
                 height: 30px;
                 border-radius: 8px;
             }
-            .badge-logo svg { width: 14px; height: 14px; }
-            .badge-text { font-size: .32rem; }
+
+            .badge-logo svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .badge-text {
+                font-size: .32rem;
+            }
         }
 
         /* ── Projects Section ──────────────────────────────────────────── */
@@ -848,7 +945,7 @@
             display: block;
             filter: grayscale(30%) brightness(.85);
             transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        filter 0.6s ease;
+                filter 0.6s ease;
             will-change: transform;
         }
 
@@ -874,7 +971,7 @@
             border-radius: 50%;
             background: rgba(13, 13, 13, 0.72);
             border: 1.5px solid rgba(255, 255, 255, .18);
-            color: rgba(255,255,255,0.7);
+            color: rgba(255, 255, 255, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -883,11 +980,11 @@
             overflow: hidden;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
             transition:
                 border-color 0.35s ease,
-                box-shadow   0.35s ease,
-                color        0.25s ease;
+                box-shadow 0.35s ease,
+                color 0.25s ease;
         }
 
         /* Liquid fill pseudo-element */
@@ -907,14 +1004,14 @@
             position: relative;
             z-index: 1;
             transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        color 0.22s ease;
+                color 0.22s ease;
         }
 
         .slide-arrow:hover {
             border-color: var(--green);
             color: #0d0d0d;
             box-shadow: 0 0 28px rgba(200, 255, 0, 0.45),
-                        0 4px 20px rgba(0,0,0,0.5);
+                0 4px 20px rgba(0, 0, 0, 0.5);
             transform: translateY(-50%) scale(1.1);
         }
 
@@ -922,8 +1019,13 @@
             transform: scaleY(1);
         }
 
-        .slide-arrow.prev:hover svg { transform: translateX(-2px) scale(1.15); }
-        .slide-arrow.next:hover svg { transform: translateX( 2px) scale(1.15); }
+        .slide-arrow.prev:hover svg {
+            transform: translateX(-2px) scale(1.15);
+        }
+
+        .slide-arrow.next:hover svg {
+            transform: translateX(2px) scale(1.15);
+        }
 
         .slide-arrow.prev {
             left: -22px;
@@ -1719,6 +1821,7 @@
                 opacity: 0;
                 transform: translateY(16px) scale(0.98);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -1952,13 +2055,13 @@
             transform: scale(0.88) translateY(28px);
             opacity: 0;
             transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                        opacity 0.4s ease;
+                opacity 0.4s ease;
             overflow: hidden;
             box-sizing: border-box;
             will-change: transform, opacity;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.9),
-                        0 0 0 1px rgba(200,255,0,0.06) inset,
-                        0 0 60px rgba(200,255,0,0.06);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9),
+                0 0 0 1px rgba(200, 255, 0, 0.06) inset,
+                0 0 60px rgba(200, 255, 0, 0.06);
         }
 
         .cert-modal.show .cert-modal-inner {
@@ -1972,8 +2075,8 @@
             align-items: center;
             justify-content: space-between;
             padding: 16px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
             gap: 12px;
         }
 
@@ -1988,8 +2091,8 @@
             width: 32px;
             height: 32px;
             border-radius: 8px;
-            background: rgba(200,255,0,0.1);
-            border: 1px solid rgba(200,255,0,0.25);
+            background: rgba(200, 255, 0, 0.1);
+            border: 1px solid rgba(200, 255, 0, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2018,7 +2121,7 @@
         .cert-modal-code {
             font-size: 0.62rem;
             font-family: monospace;
-            color: rgba(255,255,255,0.3);
+            color: rgba(255, 255, 255, 0.3);
             letter-spacing: 0.1em;
         }
 
@@ -2026,9 +2129,9 @@
             width: 34px;
             height: 34px;
             border-radius: 8px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            color: rgba(255,255,255,0.4);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2038,7 +2141,7 @@
         }
 
         .cert-modal-close:hover {
-            background: rgba(239,68,68,0.12);
+            background: rgba(239, 68, 68, 0.12);
             border-color: #EF4444;
             color: #EF4444;
             transform: rotate(90deg);
@@ -2072,13 +2175,17 @@
             z-index: 3;
             pointer-events: none;
         }
+
         .cert-modal-img-wrapper::before {
-            top: 12px; left: 12px;
+            top: 12px;
+            left: 12px;
             border-width: 2px 0 0 2px;
             border-radius: 3px 0 0 0;
         }
+
         .cert-modal-img-wrapper::after {
-            bottom: 12px; right: 12px;
+            bottom: 12px;
+            right: 12px;
             border-width: 0 2px 2px 0;
             border-radius: 0 0 3px 0;
         }
@@ -2089,8 +2196,8 @@
             align-items: center;
             justify-content: space-between;
             padding: 14px 20px;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            background: rgba(255,255,255,0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
             gap: 12px;
         }
 
@@ -2100,7 +2207,7 @@
             gap: 8px;
             font-size: 0.65rem;
             font-family: monospace;
-            color: rgba(255,255,255,0.3);
+            color: rgba(255, 255, 255, 0.3);
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
@@ -2130,20 +2237,28 @@
             text-transform: uppercase;
             text-decoration: none;
             cursor: pointer;
-            transition: box-shadow 0.3s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+            transition: box-shadow 0.3s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .cert-modal-download:hover {
-            box-shadow: 0 0 24px rgba(200,255,0,0.5);
+            box-shadow: 0 0 24px rgba(200, 255, 0, 0.5);
             transform: scale(1.05);
         }
 
         /* Mobile */
         @media (max-width: 600px) {
-            .cert-modal-inner { border-radius: 14px; }
+            .cert-modal-inner {
+                border-radius: 14px;
+            }
+
             .cert-modal-topbar,
-            .cert-modal-footer { padding: 12px 14px; }
-            .cert-modal-title { font-size: 0.72rem; }
+            .cert-modal-footer {
+                padding: 12px 14px;
+            }
+
+            .cert-modal-title {
+                font-size: 0.72rem;
+            }
         }
 
         /* Mobile responsive */
@@ -2360,6 +2475,7 @@
         }
 
         @media (max-width: 480px) {
+
             .nav-fn,
             .nav-ln {
                 font-size: .85rem;
@@ -2425,6 +2541,378 @@
                 padding: 0 10px 0 6px;
             }
         }
+
+        /* ═══════════════════════════ SKILLS ══════════════════════════════ */
+        #skills {
+            padding: var(--section-pad-y) var(--section-pad-x);
+            background: var(--bg);
+        }
+
+        .skills-inner {
+            max-width: var(--section-max);
+            margin: 0 auto;
+        }
+
+        .skills-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: var(--section-gap);
+        }
+
+        .skills-heading .slash {
+            color: var(--green);
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 900;
+            font-style: italic;
+            line-height: 1;
+        }
+
+        .skills-heading h2 {
+            font-size: clamp(1.1rem, 2.3vw, 1.45rem);
+            font-weight: 900;
+            font-style: italic;
+            color: #fff;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .skills-heading::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Two-column layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.4rem;
+        }
+
+        @media (max-width: 700px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* -- Card wrapper -- */
+        .skills-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 1.8rem 1.6rem;
+        }
+
+        .skills-card-title {
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1.6rem;
+            font-family: monospace;
+        }
+
+        /* -- Skill bar rows -- */
+        .skill-row {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .45rem;
+        }
+
+        .skill-name {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .skill-pct {
+            font-size: .68rem;
+            font-weight: 700;
+            color: var(--green);
+            font-family: monospace;
+        }
+
+        .skill-track {
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, .07);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 99px;
+            background: linear-gradient(90deg, #8bc900, var(--green));
+            width: 0%;
+            transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 0 10px rgba(200, 255, 0, 0.35);
+        }
+
+        /* -- Software tools grid -- */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: .85rem;
+        }
+
+        .tool-chip {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .45rem;
+            padding: .85rem .5rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .07);
+            transition: border-color .28s, background .28s, transform .28s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: default;
+        }
+
+        .tool-chip:hover {
+            border-color: rgba(200, 255, 0, .4);
+            background: rgba(200, 255, 0, .06);
+            transform: translateY(-3px);
+        }
+
+        .tool-chip svg,
+        .tool-chip img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            opacity: .85;
+        }
+
+        .tool-chip-label {
+            font-size: .55rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: #888;
+            text-align: center;
+        }
+
+        /* ════════════════════════ EXPERIENCE ══════════════════════ */
+        #experience {
+            padding: var(--section-pad-y) var(--section-pad-x);
+            background: var(--bg);
+        }
+
+        .experience-inner {
+            max-width: var(--section-max);
+            margin: 0 auto;
+        }
+
+        .experience-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: var(--section-gap);
+        }
+
+        .experience-heading .slash {
+            color: var(--green);
+            font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 900;
+            font-style: italic;
+            line-height: 1;
+        }
+
+        .experience-heading h2 {
+            font-size: clamp(1.1rem, 2.3vw, 1.45rem);
+            font-weight: 900;
+            font-style: italic;
+            color: #fff;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .experience-heading::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Timeline container */
+        .exp-timeline {
+            position: relative;
+            padding-left: 2.4rem;
+        }
+
+        /* Vertical line */
+        .exp-timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 8px;
+            width: 1.5px;
+            height: 0%;
+            /* animated by JS */
+            background: linear-gradient(to bottom, var(--green), rgba(200, 255, 0, 0.08));
+            border-radius: 2px;
+            transition: height 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .exp-timeline.in-view::before {
+            height: calc(100% - 16px);
+        }
+
+        /* Individual entry */
+        .exp-entry {
+            position: relative;
+            margin-bottom: 2.8rem;
+        }
+
+        .exp-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Glowing dot */
+        .exp-dot {
+            position: absolute;
+            left: -2.4rem;
+            top: 6px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--green);
+            box-shadow: 0 0 10px rgba(200, 255, 0, 0.5);
+            z-index: 1;
+        }
+
+        /* Header row: badge + title block */
+        .exp-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: .75rem;
+        }
+
+        .exp-badge {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(200, 255, 0, .08);
+            border: 1px solid rgba(200, 255, 0, .22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exp-badge svg {
+            width: 18px;
+            height: 18px;
+            color: var(--green);
+        }
+
+        .exp-title-block {
+            flex: 1;
+        }
+
+        .exp-role {
+            font-size: .92rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: .02em;
+            line-height: 1.2;
+        }
+
+        .exp-company {
+            font-size: .74rem;
+            font-weight: 500;
+            color: var(--green);
+            margin-top: 2px;
+        }
+
+        /* Meta row: date + location */
+        .exp-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: .85rem;
+            flex-wrap: wrap;
+        }
+
+        .exp-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: .63rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            font-family: monospace;
+        }
+
+        .exp-meta-item svg {
+            width: 11px;
+            height: 11px;
+            flex-shrink: 0;
+            opacity: .7;
+        }
+
+        /* Bullet list */
+        .exp-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .55rem;
+        }
+
+        .exp-bullets li {
+            display: flex;
+            align-items: baseline;
+            gap: .55rem;
+            font-size: .8rem;
+            line-height: 1.6;
+            color: #999;
+        }
+
+        .exp-bullets li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--green);
+            margin-top: .45rem;
+            box-shadow: 0 0 5px rgba(200, 255, 0, 0.5);
+        }
+
+        /* Divider between entries */
+        .exp-entry+.exp-entry {
+            padding-top: .4rem;
+        }
+
+        @media (max-width: 600px) {
+            .exp-timeline {
+                padding-left: 1.8rem;
+            }
+
+            .exp-dot {
+                left: -1.8rem;
+            }
+        }
     </style>
 </head>
 
@@ -2475,7 +2963,10 @@
     <div class="nav-drawer" id="navDrawer" role="dialog" aria-label="Navigation menu">
         <a href="#hero" class="drawer-link">Home</a>
         <a href="#projects" class="drawer-link">Projects</a>
-        <a href="#certificates" class="drawer-link">Training</a>
+        <a href="#courses" class="drawer-link">Courses</a>
+        <a href="#training" class="drawer-link">Training</a>
+        <a href="#skills" class="drawer-link">Skills</a>
+        <a href="#experience" class="drawer-link">Experience</a>
         <a href="#education" class="drawer-link">Education</a>
         <a href="cv.pdf" target="_blank" rel="noopener" class="drawer-resume">Resume ↗</a>
     </div>
@@ -2492,7 +2983,7 @@
 
             /* ── Hamburger toggle ── */
             const hamburger = document.getElementById('navHamburger');
-            const drawer    = document.getElementById('navDrawer');
+            const drawer = document.getElementById('navDrawer');
 
             function openDrawer() {
                 hamburger.classList.add('open');
@@ -2572,7 +3063,8 @@
                 <!-- Social icons -->
                 <div class="hero-socials">
                     <!-- LinkedIn -->
-                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/mohamedalsaid" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="LinkedIn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                             <rect x="2" y="9" width="4" height="12" />
@@ -2580,14 +3072,15 @@
                         </svg>
                     </a>
                     <!-- Facebook -->
-                    <a href="#" class="social-icon" aria-label="Facebook">
+                    <a href="https://www.facebook.com/mohamed.alsaid.775823" target="_blank" rel="noopener"
+                        class="social-icon" aria-label="Facebook">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                         </svg>
                     </a>
                     <!-- Email -->
-                    <a href="mailto:" class="social-icon" aria-label="Email">
+                    <a href="mailto:m.elhefnawy08@gmail.com" class="social-icon" aria-label="Email">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -2622,102 +3115,104 @@
 
             <!-- Slider -->
             <div class="slider-outer">
-            <div class="slider-wrapper" id="projectSlider">
+                <div class="slider-wrapper" id="projectSlider">
 
-                <!-- Slide 1 -->
-                <div class="slide active" id="slide-1">
-                    <div class="slide-img">
-                        <img src="city.png" alt="Smart Desert City">
+                    <!-- Slide 1 -->
+                    <div class="slide active" id="slide-1">
+                        <div class="slide-img">
+                            <img src="city.png" alt="Smart Desert City">
+                        </div>
+                        <div class="slide-info">
+                            <div class="slide-number">Project #1</div>
+                            <h3 class="slide-title">Smart Desert City</h3>
+                            <p class="slide-desc">Design and implementation of a fully automated control system using
+                                Siemens TIA Portal with real-time SCADA monitoring, fault detection, and remote access
+                                capabilities.</p>
+                            <a href="index-1.html" class="slide-btn">View Project</a>
+                        </div>
                     </div>
-                    <div class="slide-info">
-                        <div class="slide-number">Project #1</div>
-                        <h3 class="slide-title">Smart Desert City</h3>
-                        <p class="slide-desc">Design and implementation of a fully automated control system using
-                            Siemens TIA Portal with real-time SCADA monitoring, fault detection, and remote access
-                            capabilities.</p>
-                        <a href="index-1.html" class="slide-btn">View Project</a>
+
+                    <!-- Slide 2 -->
+                    <div class="slide" id="slide-2">
+                        <div class="slide-img">
+                            <img src="cnc.jpg" alt="HMI Dashboard Design">
+                        </div>
+                        <div class="slide-info">
+                            <div class="slide-number">Project #2</div>
+                            <h3 class="slide-title">HMI Dashboard Design</h3>
+                            <p class="slide-desc">Custom HMI interface design for process visualization, alarm
+                                management,
+                                and operator interaction on a manufacturing production line.</p>
+                            <a href="index-2.html" class="slide-btn">View Project</a>
+                        </div>
                     </div>
+
+                    <!-- Slide 3 -->
+                    <div class="slide" id="slide-3">
+                        <div class="slide-img">
+                            <!-- Add your image here: <img src="project3.jpg" alt="Project 3"> -->
+                            <span class="slide-img-placeholder">Image Coming Soon</span>
+                        </div>
+                        <div class="slide-info">
+                            <div class="slide-number">Project #3</div>
+                            <h3 class="slide-title">Conveyor Belt Control</h3>
+                            <p class="slide-desc">Automated conveyor belt system using Allen-Bradley PLC with speed
+                                control,
+                                fault detection, emergency stop logic, and remote monitoring capabilities.</p>
+                            <a href="index-3.html" class="slide-btn">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="slide" id="slide-4">
+                        <div class="slide-img">
+                            <!-- Add your image here: <img src="project4.jpg" alt="Project 4"> -->
+                            <span class="slide-img-placeholder">Image Coming Soon</span>
+                        </div>
+                        <div class="slide-info">
+                            <div class="slide-number">Project #4</div>
+                            <h3 class="slide-title">SCADA Monitoring System</h3>
+                            <p class="slide-desc">Real-time SCADA monitoring platform for industrial plant operations
+                                including data logging, trend analysis, alarm management, and remote visualization.</p>
+                            <a href="index-4.html" class="slide-btn">View Project</a>
+                        </div>
+                    </div>
+
+                    <!-- Shared arrow buttons on the wrapper -->
+                    <button class="slide-arrow prev" onclick="changeSlide(-1)" aria-label="Previous">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <button class="slide-arrow next" onclick="changeSlide(1)" aria-label="Next">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
+
+                    <!-- Dot indicators -->
+                    <div class="slider-dots" id="sliderDots">
+                        <button class="slider-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+                        <button class="slider-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+                        <button class="slider-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+                        <button class="slider-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+                    </div>
+
                 </div>
-
-                <!-- Slide 2 -->
-                <div class="slide" id="slide-2">
-                    <div class="slide-img">
-                        <img src="cnc.jpg" alt="HMI Dashboard Design">
-                    </div>
-                    <div class="slide-info">
-                        <div class="slide-number">Project #2</div>
-                        <h3 class="slide-title">HMI Dashboard Design</h3>
-                        <p class="slide-desc">Custom HMI interface design for process visualization, alarm management,
-                            and operator interaction on a manufacturing production line.</p>
-                        <a href="index-2.html" class="slide-btn">View Project</a>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="slide" id="slide-3">
-                    <div class="slide-img">
-                        <!-- Add your image here: <img src="project3.jpg" alt="Project 3"> -->
-                        <span class="slide-img-placeholder">Image Coming Soon</span>
-                    </div>
-                    <div class="slide-info">
-                        <div class="slide-number">Project #3</div>
-                        <h3 class="slide-title">Conveyor Belt Control</h3>
-                        <p class="slide-desc">Automated conveyor belt system using Allen-Bradley PLC with speed control,
-                            fault detection, emergency stop logic, and remote monitoring capabilities.</p>
-                        <a href="index-3.html" class="slide-btn">View Project</a>
-                    </div>
-                </div>
-
-                <!-- Slide 4 -->
-                <div class="slide" id="slide-4">
-                    <div class="slide-img">
-                        <!-- Add your image here: <img src="project4.jpg" alt="Project 4"> -->
-                        <span class="slide-img-placeholder">Image Coming Soon</span>
-                    </div>
-                    <div class="slide-info">
-                        <div class="slide-number">Project #4</div>
-                        <h3 class="slide-title">SCADA Monitoring System</h3>
-                        <p class="slide-desc">Real-time SCADA monitoring platform for industrial plant operations
-                            including data logging, trend analysis, alarm management, and remote visualization.</p>
-                        <a href="index-4.html" class="slide-btn">View Project</a>
-                    </div>
-                </div>
-
-                <!-- Shared arrow buttons on the wrapper -->
-                <button class="slide-arrow prev" onclick="changeSlide(-1)" aria-label="Previous">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6" />
-                    </svg>
-                </button>
-                <button class="slide-arrow next" onclick="changeSlide(1)" aria-label="Next">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6" />
-                    </svg>
-                </button>
-
-                <!-- Dot indicators -->
-                <div class="slider-dots" id="sliderDots">
-                    <button class="slider-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
-                    <button class="slider-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
-                    <button class="slider-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
-                    <button class="slider-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
-                </div>
-
-            </div>
             </div><!-- /.slider-outer -->
         </div>
     </section>
 
     <!-- ══════════════════════ CERTIFICATES ══════════════════════════════ -->
-    <section id="certificates">
+    <section id="courses">
         <div class="certificates-inner">
 
             <!-- Heading -->
             <div class="certificates-heading">
                 <span class="slash">/</span>
-                <h2>Training &amp; Certificates</h2>
+                <h2>Courses</h2>
             </div>
 
             <!-- Top bar: nav buttons only -->
@@ -2919,6 +3414,421 @@
         </div>
     </section>
 
+    <!-- ══════════════════════ TRAINING ═══════════════════════════════ -->
+    <section id="training">
+        <div class="experience-inner">
+
+            <div class="experience-heading">
+                <span class="slash">/</span>
+                <h2>Training</h2>
+            </div>
+
+            <div class="exp-timeline" id="trainingTimeline">
+
+                <!-- Training Entry 1 -->
+                <div class="exp-entry">
+                    <div class="exp-dot"></div>
+                    <div class="exp-header">
+                        <div class="exp-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <div class="exp-title-block">
+                            <div class="exp-role">Industrial Automation Training</div>
+                            <div class="exp-company">Siemens Training Center — Egypt</div>
+                        </div>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            Summer 2023
+                        </span>
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Cairo, Egypt
+                        </span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Hands-on training with Siemens S7-1200/1500 PLCs and TIA Portal programming environment.
+                        </li>
+                        <li>Practical exercises in ladder logic, FBD, and SCL programming languages.</li>
+                        <li>Configured and tested PROFINET communication between PLCs and HMI panels.</li>
+                    </ul>
+                </div>
+
+                <!-- Training Entry 2 -->
+                <div class="exp-entry">
+                    <div class="exp-dot"></div>
+                    <div class="exp-header">
+                        <div class="exp-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                            </svg>
+                        </div>
+                        <div class="exp-title-block">
+                            <div class="exp-role">SCADA &amp; HMI Systems Workshop</div>
+                            <div class="exp-company">Egyptian Engineering Association</div>
+                        </div>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            Winter 2023
+                        </span>
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Mansoura, Egypt
+                        </span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Developed SCADA dashboards using WinCC and FactoryTalk for process visualization.</li>
+                        <li>Built HMI screens with alarm management, trend displays, and operator login systems.</li>
+                        <li>Integrated SCADA with live PLC data over OPC-UA and Modbus TCP protocols.</li>
+                    </ul>
+                </div>
+
+                <!-- Training Entry 3 -->
+                <div class="exp-entry">
+                    <div class="exp-dot"></div>
+                    <div class="exp-header">
+                        <div class="exp-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 8v4l3 3" />
+                            </svg>
+                        </div>
+                        <div class="exp-title-block">
+                            <div class="exp-role">Electrical Safety &amp; Maintenance Workshop</div>
+                            <div class="exp-company">New Mansoura University — Faculty of Engineering</div>
+                        </div>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            Spring 2024
+                        </span>
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            New Mansoura, Egypt
+                        </span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Covered IEC 60204 electrical safety standards for industrial machinery.</li>
+                        <li>Practical sessions on lockout/tagout (LOTO), insulation testing, and panel grounding.</li>
+                        <li>Participated in preventive maintenance planning and fault-finding exercises.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ SKILLS ════════════════════════════════ -->
+    <section id="skills">
+        <div class="skills-inner">
+
+            <div class="skills-heading">
+                <span class="slash">/</span>
+                <h2>Skills &amp; Expertise</h2>
+            </div>
+
+            <div class="skills-grid">
+
+                <!-- LEFT: Technical proficiency bars -->
+                <div class="skills-card">
+                    <div class="skills-card-title">// Technical Proficiency</div>
+
+                    <div class="skill-row" data-pct="90">
+                        <div class="skill-meta">
+                            <span class="skill-name">PLC Programming (Ladder / FBD)</span>
+                            <span class="skill-pct">90%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-row" data-pct="85">
+                        <div class="skill-meta">
+                            <span class="skill-name">SCADA Systems</span>
+                            <span class="skill-pct">85%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-row" data-pct="80">
+                        <div class="skill-meta">
+                            <span class="skill-name">HMI Design &amp; Integration</span>
+                            <span class="skill-pct">80%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-row" data-pct="78">
+                        <div class="skill-meta">
+                            <span class="skill-name">Industrial Process Control</span>
+                            <span class="skill-pct">78%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-row" data-pct="75">
+                        <div class="skill-meta">
+                            <span class="skill-name">Electrical Circuit Design</span>
+                            <span class="skill-pct">75%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-row" data-pct="70">
+                        <div class="skill-meta">
+                            <span class="skill-name">Control Systems &amp; PID</span>
+                            <span class="skill-pct">70%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Software tools -->
+                <div class="skills-card">
+                    <div class="skills-card-title">// Software &amp; Tools</div>
+                    <div class="tools-grid">
+
+                        <!-- Siemens TIA Portal -->
+                        <div class="tool-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <line x1="8" y1="21" x2="16" y2="21" />
+                                <line x1="12" y1="17" x2="12" y2="21" />
+                                <polyline points="7 9 12 14 17 9" />
+                            </svg>
+                            <span class="tool-chip-label">TIA Portal</span>
+                        </div>
+
+                        <!-- Allen-Bradley -->
+                        <div class="tool-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="9" />
+                                <path d="M12 8v4l3 3" />
+                            </svg>
+                            <span class="tool-chip-label">Allen-Bradley</span>
+                        </div>
+
+                        <!-- AutoCAD Electrical -->
+                        <div class="tool-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                                <polyline points="2 17 12 22 22 17" />
+                                <polyline points="2 12 12 17 22 12" />
+                            </svg>
+                            <span class="tool-chip-label">AutoCAD</span>
+                        </div>
+
+                        <!-- MATLAB -->
+                        <div class="tool-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="4 17 10 11 4 5" />
+                                <line x1="12" y1="19" x2="20" y2="19" />
+                            </svg>
+                            <span class="tool-chip-label">MATLAB</span>
+                        </div>
+
+                        <!-- WinCC -->
+                        <div class="tool-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="3" />
+                                <path d="M3 9h18" />
+                                <path d="M9 21V9" />
+                            </svg>
+                            <span class="tool-chip-label">WinCC</span>
+                        </div>
+
+                        <!-- FactoryTalk -->
+                        <div class="tool-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5" />
+                                <path d="M2 12l10 5 10-5" />
+                            </svg>
+                            <span class="tool-chip-label">FactoryTalk</span>
+                        </div>
+
+                        <!-- Proteus -->
+                        <div class="tool-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M19.07 4.93A10 10 0 1 1 4.93 19.07" />
+                                <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                            </svg>
+                            <span class="tool-chip-label">Proteus</span>
+                        </div>
+
+                        <!-- EPLAN -->
+                        <div class="tool-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                            <span class="tool-chip-label">EPLAN</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════ EXPERIENCE ══════════════════════════════════ -->
+    <section id="experience">
+        <div class="experience-inner">
+
+            <div class="experience-heading">
+                <span class="slash">/</span>
+                <h2>Experience</h2>
+            </div>
+
+            <div class="exp-timeline" id="expTimeline">
+
+                <!-- Entry 1 -->
+                <div class="exp-entry">
+                    <div class="exp-dot"></div>
+                    <div class="exp-header">
+                        <div class="exp-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" />
+                                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                                <line x1="12" y1="12" x2="12" y2="17" />
+                                <line x1="9" y1="14" x2="15" y2="14" />
+                            </svg>
+                        </div>
+                        <div class="exp-title-block">
+                            <div class="exp-role">Automation &amp; Control Engineer (Intern)</div>
+                            <div class="exp-company">Industrial Systems Co.</div>
+                        </div>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            Jun 2024 — Sep 2024
+                        </span>
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Egypt
+                        </span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Programmed and commissioned Siemens S7-1200 PLCs using TIA Portal for conveyor and packaging
+                            lines.</li>
+                        <li>Designed and tested HMI panels (WinCC) for real-time process monitoring and alarm
+                            management.</li>
+                        <li>Assisted in SCADA integration and field wiring for motor control centers (MCCs).</li>
+                        <li>Performed fault diagnosis and preventive maintenance on automated production systems.</li>
+                    </ul>
+                </div>
+
+                <!-- Entry 2 -->
+                <div class="exp-entry">
+                    <div class="exp-dot"></div>
+                    <div class="exp-header">
+                        <div class="exp-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                        </div>
+                        <div class="exp-title-block">
+                            <div class="exp-role">Electrical Engineering Trainee</div>
+                            <div class="exp-company">New Mansoura Power Grid — Summer Training</div>
+                        </div>
+                    </div>
+                    <div class="exp-meta">
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            Jul 2023 — Aug 2023
+                        </span>
+                        <span class="exp-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            Mansoura, Egypt
+                        </span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Observed and documented substation operations including transformer monitoring and
+                            switchgear control.</li>
+                        <li>Studied protection relay configurations and learned the basics of power distribution
+                            systems.</li>
+                        <li>Assisted engineers with electrical panel inspections and load balancing reports.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- ══════════════════════ CERTIFICATE MODAL ══════════════════════════ -->
     <div class="cert-modal" id="certModal" onclick="closeCertModalBackdrop(event)">
         <div class="cert-modal-inner">
@@ -2929,8 +3839,8 @@
                     <div class="cert-modal-icon">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="8" r="6"/>
-                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+                            <circle cx="12" cy="8" r="6" />
+                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
                         </svg>
                     </div>
                     <div class="cert-modal-label">
@@ -2939,10 +3849,10 @@
                     </div>
                 </div>
                 <button class="cert-modal-close" onclick="closeCertModal()" aria-label="Close">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
                     </svg>
                 </button>
             </div>
@@ -2958,13 +3868,12 @@
                     <span class="cert-modal-status-dot"></span>
                     Verified Certificate
                 </div>
-                <a id="certModalDownload" href="plc_certificate.png" download
-                    class="cert-modal-download">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
+                <a id="certModalDownload" href="plc_certificate.png" download class="cert-modal-download">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
                     </svg>
                     Download
                 </a>
@@ -3025,7 +3934,7 @@
                     <h5>Connect</h5>
                     <ul class="footer-links">
                         <li>
-                            <a href="https://linkedin.com/in/mohamed-elhefnawy" target="_blank"
+                            <a href="https://www.linkedin.com/in/mohamedalsaid" target="_blank"
                                 rel="noopener noreferrer">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                     <path
@@ -3035,7 +3944,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.facebook.com/mohamed.alsaid.775823" target="_blank"
+                                rel="noopener noreferrer">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                     <path
                                         d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -3088,11 +3998,11 @@
     <script>
         // ── Project Slider (GSAP-powered) ─────────────────────────────────
         let currentSlide = 0;
-        let isAnimating  = false;
+        let isAnimating = false;
         const slides = Array.from(document.querySelectorAll('.slide'));
-        const dots   = Array.from(document.querySelectorAll('.slider-dot'));
-        const DUR    = 0.72;   // seconds
-        const EASE   = 'expo.inOut';
+        const dots = Array.from(document.querySelectorAll('.slider-dot'));
+        const DUR = 0.72;   // seconds
+        const EASE = 'expo.inOut';
         const OVERSHOOT = 48;  // px translate for push effect
 
         /* ── initial state: all non-active slides hidden off-screen ── */
@@ -3111,7 +4021,7 @@
 
             const prev = slides[currentSlide];
             const next = slides[index];
-            const dir  = index > currentSlide ? 1 : -1;
+            const dir = index > currentSlide ? 1 : -1;
 
             /* prepare incoming slide: positioned off-screen in direction of travel */
             prev.classList.remove('active');
@@ -3123,26 +4033,26 @@
                 onComplete: () => {
                     gsap.set(prev, { pointerEvents: 'none' });
                     currentSlide = index;
-                    isAnimating  = false;
+                    isAnimating = false;
                     updateDots();
                 }
             });
 
             /* outgoing slide: slide away + fade out + subtle shrink */
             tl.to(prev, {
-                x:       -dir * OVERSHOOT,
+                x: -dir * OVERSHOOT,
                 opacity: 0,
-                scale:   0.95,
-                ease:    'power3.in',
+                scale: 0.95,
+                ease: 'power3.in',
                 duration: DUR * 0.65
             }, 0);
 
             /* incoming slide: slide in + fade in + scale to 1 */
             tl.to(next, {
-                x:       0,
+                x: 0,
                 opacity: 1,
-                scale:   1,
-                ease:    'expo.out',
+                scale: 1,
+                ease: 'expo.out',
                 duration: DUR,
                 pointerEvents: 'all'
             }, DUR * 0.1);   /* slight overlap for seamless cross-motion */
@@ -3150,11 +4060,13 @@
             /* image zoom resets on outgoing, sets on incoming */
             const prevImg = prev.querySelector('.slide-img img');
             const nextImg = next.querySelector('.slide-img img');
-            if (prevImg) tl.to(prevImg, { scale: 1,    duration: DUR * 0.7, ease: 'power2.out' }, 0);
+            if (prevImg) tl.to(prevImg, { scale: 1, duration: DUR * 0.7, ease: 'power2.out' }, 0);
             if (nextImg) tl.fromTo(nextImg,
                 { scale: 1.08, filter: 'grayscale(60%) brightness(0.7)' },
-                { scale: 1.04, filter: 'grayscale(30%) brightness(0.85)',
-                  duration: DUR * 1.1, ease: 'power2.out' }, DUR * 0.1);
+                {
+                    scale: 1.04, filter: 'grayscale(30%) brightness(0.85)',
+                    duration: DUR * 1.1, ease: 'power2.out'
+                }, DUR * 0.1);
 
             /* dot indicator gets a quick scale-bounce */
             dots.forEach(d => d.classList.remove('active'));
@@ -3252,12 +4164,12 @@
 
         // ── Certificate Modal ─────────────────────────────────────────────
         function openCertModal() {
-            const modal    = document.getElementById('certModal');
-            const data     = CERT_DATA[currentCertStep];
-            document.getElementById('certModalImg').src         = data.img;
-            document.getElementById('certModalTitle').textContent    = data.label;
-            document.getElementById('certModalCodeTop').textContent  = data.code;
-            document.getElementById('certModalDownload').href        = data.img;
+            const modal = document.getElementById('certModal');
+            const data = CERT_DATA[currentCertStep];
+            document.getElementById('certModalImg').src = data.img;
+            document.getElementById('certModalTitle').textContent = data.label;
+            document.getElementById('certModalCodeTop').textContent = data.code;
+            document.getElementById('certModalDownload').href = data.img;
             requestAnimationFrame(() => modal.classList.add('show'));
             document.body.style.overflow = 'hidden';
         }
@@ -3279,203 +4191,260 @@
 
     <!-- ══════════════════════ MASTER ANIMATION SCRIPT ══════════════════ -->
     <script>
-    (function () {
-        // Register GSAP plugins
-        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+        (function () {
+            // Register GSAP plugins
+            gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-        /* ─────────────────────────────────────────────────────────────────
-           HERO ENTRANCE  (staggered reveal on page load)
-        ───────────────────────────────────────────────────────────────── */
-        const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
+            /* ─────────────────────────────────────────────────────────────────
+               HERO ENTRANCE  (staggered reveal on page load)
+            ───────────────────────────────────────────────────────────────── */
+            const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-        // Set initial states
-        gsap.set(['.hero-badge', '.hero-fn', '.hero-ln', '.hero-role',
-                  '.hero-bio', '.hero-socials'], { autoAlpha: 0, y: 30 });
-        gsap.set('.hero-right', { autoAlpha: 0, x: 40, scale: 0.96 });
-        gsap.set('.float-badge', { autoAlpha: 0, scale: 0.7 });
+            // Set initial states
+            gsap.set(['.hero-badge', '.hero-fn', '.hero-ln', '.hero-role',
+                '.hero-bio', '.hero-socials'], { autoAlpha: 0, y: 30 });
+            gsap.set('.hero-right', { autoAlpha: 0, x: 40, scale: 0.96 });
+            gsap.set('.float-badge', { autoAlpha: 0, scale: 0.7 });
 
-        heroTL
-            .to('.hero-badge',   { autoAlpha: 1, y: 0, duration: 0.7 }, 0.2)
-            .to('.hero-fn',      { autoAlpha: 1, y: 0, duration: 0.8 }, 0.4)
-            .to('.hero-ln',      { autoAlpha: 1, y: 0, duration: 0.8 }, 0.55)
-            .to('.hero-role',    { autoAlpha: 1, y: 0, duration: 0.7 }, 0.7)
-            .to('.hero-bio',     { autoAlpha: 1, y: 0, duration: 0.7 }, 0.85)
-            .to('.hero-socials', { autoAlpha: 1, y: 0, duration: 0.6 }, 1.0)
-            .to('.hero-right',   { autoAlpha: 1, x: 0, scale: 1, duration: 1.0, ease: 'expo.out' }, 0.35)
-            .to('.float-badge',  {
-                autoAlpha: 1, scale: 1, duration: 0.6,
-                stagger: 0.12, ease: 'back.out(1.8)'
-            }, 0.9);
+            heroTL
+                .to('.hero-badge', { autoAlpha: 1, y: 0, duration: 0.7 }, 0.2)
+                .to('.hero-fn', { autoAlpha: 1, y: 0, duration: 0.8 }, 0.4)
+                .to('.hero-ln', { autoAlpha: 1, y: 0, duration: 0.8 }, 0.55)
+                .to('.hero-role', { autoAlpha: 1, y: 0, duration: 0.7 }, 0.7)
+                .to('.hero-bio', { autoAlpha: 1, y: 0, duration: 0.7 }, 0.85)
+                .to('.hero-socials', { autoAlpha: 1, y: 0, duration: 0.6 }, 1.0)
+                .to('.hero-right', { autoAlpha: 1, x: 0, scale: 1, duration: 1.0, ease: 'expo.out' }, 0.35)
+                .to('.float-badge', {
+                    autoAlpha: 1, scale: 1, duration: 0.6,
+                    stagger: 0.12, ease: 'back.out(1.8)'
+                }, 0.9);
 
-        /* ─────────────────────────────────────────────────────────────────
-           NAVBAR smooth scroll links
-        ───────────────────────────────────────────────────────────────── */
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', e => {
-                const target = document.querySelector(link.getAttribute('href'));
-                if (!target) return;
-                e.preventDefault();
-                gsap.to(window, {
-                    scrollTo: { y: target, offsetY: 70 },
-                    duration: 1.1,
-                    ease: 'power3.inOut'
-                });
-            });
-        });
-
-        /* ─────────────────────────────────────────────────────────────────
-           SECTION REVEAL HELPER
-        ───────────────────────────────────────────────────────────────── */
-        function reveal(targets, vars, triggerEl, startOffset) {
-            gsap.set(targets, { autoAlpha: 0, y: vars.y ?? 36, scale: vars.scale ?? 1 });
-            return gsap.to(targets, {
-                autoAlpha: 1, y: 0, scale: 1,
-                duration: vars.duration ?? 0.75,
-                stagger: vars.stagger ?? 0,
-                ease: vars.ease ?? 'power3.out',
-                scrollTrigger: {
-                    trigger: triggerEl || targets,
-                    start: startOffset ?? 'top 85%',
-                    toggleActions: 'play none none none',
-                }
-            });
-        }
-
-        /* ─────────────────────────────────────────────────────────────────
-           PROJECTS SECTION
-        ───────────────────────────────────────────────────────────────── */
-        reveal('.projects-heading', { duration: 0.65 }, '#projects');
-        reveal('.slider-outer',    { y: 44, duration: 0.85, ease: 'expo.out' }, '#projects', 'top 80%');
-        reveal('.slider-dots',      { y: 14, duration: 0.5 }, '#projects', 'top 70%');
-
-        /* ─────────────────────────────────────────────────────────────────
-           CERTIFICATES SECTION
-        ───────────────────────────────────────────────────────────────── */
-        reveal('.certificates-heading', { duration: 0.65 }, '#certificates');
-        reveal('.cert-section-topbar',  { y: 20, duration: 0.55 }, '#certificates', 'top 82%');
-        reveal('.cert-dashboard',       { y: 50, duration: 0.9, ease: 'expo.out' }, '#certificates', 'top 78%');
-        reveal('.cert-hours-token',     { y: 18, duration: 0.55 }, '#certificates', 'top 65%');
-
-        // Animate cert step icons in on first scroll
-        gsap.set('.cert-step-icon', { autoAlpha: 0, scale: 0.6 });
-        ScrollTrigger.create({
-            trigger: '#certificates',
-            start: 'top 80%',
-            onEnter: () => gsap.to('.cert-step-icon', {
-                autoAlpha: 1, scale: 1, duration: 0.5,
-                stagger: 0.08, ease: 'back.out(1.8)'
-            })
-        });
-
-        /* ─────────────────────────────────────────────────────────────────
-           NUMBER COUNTER: 270 hours
-        ───────────────────────────────────────────────────────────────── */
-        const hoursEl = document.querySelector('.cert-hours-value');
-        if (hoursEl) {
-            const target = parseInt(hoursEl.textContent, 10) || 270;
-            hoursEl.textContent = '0';
-            ScrollTrigger.create({
-                trigger: '.cert-hours-token',
-                start: 'top 88%',
-                onEnter: () => {
-                    gsap.to({ val: 0 }, {
-                        val: target,
-                        duration: 1.8,
-                        ease: 'power2.out',
-                        onUpdate: function () {
-                            hoursEl.textContent = Math.round(this.targets()[0].val);
-                        }
+            /* ─────────────────────────────────────────────────────────────────
+               NAVBAR smooth scroll links
+            ───────────────────────────────────────────────────────────────── */
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', e => {
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (!target) return;
+                    e.preventDefault();
+                    gsap.to(window, {
+                        scrollTo: { y: target, offsetY: 70 },
+                        duration: 1.1,
+                        ease: 'power3.inOut'
                     });
-                }
+                });
             });
-        }
 
-        /* ─────────────────────────────────────────────────────────────────
-           EDUCATION SECTION
-        ───────────────────────────────────────────────────────────────── */
-        reveal('.education-heading', { duration: 0.65 }, '#education');
-        reveal('.education-card',    { y: 50, duration: 0.9, ease: 'expo.out' }, '#education', 'top 80%');
+            /* ─────────────────────────────────────────────────────────────────
+               SECTION REVEAL HELPER
+            ───────────────────────────────────────────────────────────────── */
+            function reveal(targets, vars, triggerEl, startOffset) {
+                gsap.set(targets, { autoAlpha: 0, y: vars.y ?? 36, scale: vars.scale ?? 1 });
+                return gsap.to(targets, {
+                    autoAlpha: 1, y: 0, scale: 1,
+                    duration: vars.duration ?? 0.75,
+                    stagger: vars.stagger ?? 0,
+                    ease: vars.ease ?? 'power3.out',
+                    scrollTrigger: {
+                        trigger: triggerEl || targets,
+                        start: startOffset ?? 'top 85%',
+                        toggleActions: 'play none none none',
+                    }
+                });
+            }
 
-        // Animate education years count up
-        const yearsEl = document.querySelector('.education-years span');
-        if (yearsEl) {
-            gsap.set(yearsEl, { autoAlpha: 0, y: 20 });
+            /* ─────────────────────────────────────────────────────────────────
+               PROJECTS SECTION
+            ───────────────────────────────────────────────────────────────── */
+            reveal('.projects-heading', { duration: 0.65 }, '#projects');
+            reveal('.slider-outer', { y: 44, duration: 0.85, ease: 'expo.out' }, '#projects', 'top 80%');
+            reveal('.slider-dots', { y: 14, duration: 0.5 }, '#projects', 'top 70%');
+
+            /* ─────────────────────────────────────────────────────────────────
+               CERTIFICATES SECTION
+            ───────────────────────────────────────────────────────────────── */
+            reveal('.certificates-heading', { duration: 0.65 }, '#certificates');
+            reveal('.cert-section-topbar', { y: 20, duration: 0.55 }, '#certificates', 'top 82%');
+            reveal('.cert-dashboard', { y: 50, duration: 0.9, ease: 'expo.out' }, '#certificates', 'top 78%');
+            reveal('.cert-hours-token', { y: 18, duration: 0.55 }, '#certificates', 'top 65%');
+
+            // Animate cert step icons in on first scroll
+            gsap.set('.cert-step-icon', { autoAlpha: 0, scale: 0.6 });
             ScrollTrigger.create({
-                trigger: '.education-card',
-                start: 'top 82%',
-                onEnter: () => gsap.to(yearsEl, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power3.out' })
+                trigger: '#certificates',
+                start: 'top 80%',
+                onEnter: () => gsap.to('.cert-step-icon', {
+                    autoAlpha: 1, scale: 1, duration: 0.5,
+                    stagger: 0.08, ease: 'back.out(1.8)'
+                })
             });
-        }
 
-        /* ─────────────────────────────────────────────────────────────────
-           FOOTER
-        ───────────────────────────────────────────────────────────────── */
-        reveal('.footer-col', { y: 30, stagger: 0.12, duration: 0.7 }, 'footer', 'top 88%');
-        reveal('.footer-bottom', { y: 14, duration: 0.5 }, 'footer', 'top 70%');
-
-        /* ─────────────────────────────────────────────────────────────────
-           MAGNETIC HOVER — social icons, slide arrows, cert-nav-btns
-        ───────────────────────────────────────────────────────────────── */
-        function addMagnet(selector, strength) {
-            document.querySelectorAll(selector).forEach(el => {
-                el.addEventListener('mousemove', e => {
-                    const rect = el.getBoundingClientRect();
-                    const cx = rect.left + rect.width  / 2;
-                    const cy = rect.top  + rect.height / 2;
-                    const dx = (e.clientX - cx) * strength;
-                    const dy = (e.clientY - cy) * strength;
-                    gsap.to(el, { x: dx, y: dy, duration: 0.35, ease: 'power2.out' });
+            /* ─────────────────────────────────────────────────────────────────
+               NUMBER COUNTER: 270 hours
+            ───────────────────────────────────────────────────────────────── */
+            const hoursEl = document.querySelector('.cert-hours-value');
+            if (hoursEl) {
+                const target = parseInt(hoursEl.textContent, 10) || 270;
+                hoursEl.textContent = '0';
+                ScrollTrigger.create({
+                    trigger: '.cert-hours-token',
+                    start: 'top 88%',
+                    onEnter: () => {
+                        gsap.to({ val: 0 }, {
+                            val: target,
+                            duration: 1.8,
+                            ease: 'power2.out',
+                            onUpdate: function () {
+                                hoursEl.textContent = Math.round(this.targets()[0].val);
+                            }
+                        });
+                    }
                 });
-                el.addEventListener('mouseleave', () => {
-                    gsap.to(el, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1, 0.4)' });
+            }
+
+            /* ─────────────────────────────────────────────────────────────────
+               EDUCATION SECTION
+            ───────────────────────────────────────────────────────────────── */
+            reveal('.education-heading', { duration: 0.65 }, '#education');
+            reveal('.education-card', { y: 50, duration: 0.9, ease: 'expo.out' }, '#education', 'top 80%');
+
+            // Animate education years count up
+            const yearsEl = document.querySelector('.education-years span');
+            if (yearsEl) {
+                gsap.set(yearsEl, { autoAlpha: 0, y: 20 });
+                ScrollTrigger.create({
+                    trigger: '.education-card',
+                    start: 'top 82%',
+                    onEnter: () => gsap.to(yearsEl, { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power3.out' })
                 });
-            });
-        }
+            }
 
-        addMagnet('.social-icon',   0.3);
-        addMagnet('.cert-nav-btn',  0.22);
-        addMagnet('.cert-step',     0.18);
+            /* ─────────────────────────────────────────────────────────────────
+               FOOTER
+            ───────────────────────────────────────────────────────────────── */
+            reveal('.footer-col', { y: 30, stagger: 0.12, duration: 0.7 }, 'footer', 'top 88%');
+            reveal('.footer-bottom', { y: 14, duration: 0.5 }, 'footer', 'top 70%');
 
-        /* ─────────────────────────────────────────────────────────────────
-           PHOTO CARD — subtle parallax on hero right
-        ───────────────────────────────────────────────────────────────── */
-        const heroRight = document.querySelector('.hero-right');
-        if (heroRight) {
-            document.addEventListener('mousemove', e => {
-                const mx = (e.clientX / window.innerWidth  - 0.5) * 10;
-                const my = (e.clientY / window.innerHeight - 0.5) * 10;
-                gsap.to(heroRight, { rotateY: mx * 0.6, rotateX: -my * 0.4,
-                    duration: 0.8, ease: 'power2.out', transformPerspective: 900 });
-            });
-            document.querySelector('#hero').addEventListener('mouseleave', () => {
-                gsap.to(heroRight, { rotateY: 0, rotateX: 0, duration: 0.9, ease: 'elastic.out(1, 0.5)' });
-            });
-        }
+            /* ─────────────────────────────────────────────────────────────────
+               MAGNETIC HOVER — social icons, slide arrows, cert-nav-btns
+            ───────────────────────────────────────────────────────────────── */
+            function addMagnet(selector, strength) {
+                document.querySelectorAll(selector).forEach(el => {
+                    el.addEventListener('mousemove', e => {
+                        const rect = el.getBoundingClientRect();
+                        const cx = rect.left + rect.width / 2;
+                        const cy = rect.top + rect.height / 2;
+                        const dx = (e.clientX - cx) * strength;
+                        const dy = (e.clientY - cy) * strength;
+                        gsap.to(el, { x: dx, y: dy, duration: 0.35, ease: 'power2.out' });
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        gsap.to(el, { x: 0, y: 0, duration: 0.55, ease: 'elastic.out(1, 0.4)' });
+                    });
+                });
+            }
 
-        /* ─────────────────────────────────────────────────────────────────
-           BUTTON RIPPLE on slide-btn
-        ───────────────────────────────────────────────────────────────── */
-        document.querySelectorAll('.slide-btn, .btn-resume').forEach(btn => {
-            btn.style.position = 'relative';
-            btn.style.overflow = 'hidden';
-            btn.addEventListener('click', e => {
-                const r = document.createElement('span');
-                const rect = btn.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height) * 1.8;
-                r.style.cssText = `
+            addMagnet('.social-icon', 0.3);
+            addMagnet('.cert-nav-btn', 0.22);
+            addMagnet('.cert-step', 0.18);
+
+            /* ─────────────────────────────────────────────────────────────────
+               PHOTO CARD — subtle parallax on hero right
+            ───────────────────────────────────────────────────────────────── */
+            const heroRight = document.querySelector('.hero-right');
+            if (heroRight) {
+                document.addEventListener('mousemove', e => {
+                    const mx = (e.clientX / window.innerWidth - 0.5) * 10;
+                    const my = (e.clientY / window.innerHeight - 0.5) * 10;
+                    gsap.to(heroRight, {
+                        rotateY: mx * 0.6, rotateX: -my * 0.4,
+                        duration: 0.8, ease: 'power2.out', transformPerspective: 900
+                    });
+                });
+                document.querySelector('#hero').addEventListener('mouseleave', () => {
+                    gsap.to(heroRight, { rotateY: 0, rotateX: 0, duration: 0.9, ease: 'elastic.out(1, 0.5)' });
+                });
+            }
+
+            /* ─────────────────────────────────────────────────────────────────
+               BUTTON RIPPLE on slide-btn
+            ───────────────────────────────────────────────────────────────── */
+            document.querySelectorAll('.slide-btn, .btn-resume').forEach(btn => {
+                btn.style.position = 'relative';
+                btn.style.overflow = 'hidden';
+                btn.addEventListener('click', e => {
+                    const r = document.createElement('span');
+                    const rect = btn.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height) * 1.8;
+                    r.style.cssText = `
                     position:absolute; border-radius:50%;
                     width:${size}px; height:${size}px;
-                    left:${e.clientX - rect.left - size/2}px;
-                    top:${e.clientY - rect.top  - size/2}px;
+                    left:${e.clientX - rect.left - size / 2}px;
+                    top:${e.clientY - rect.top - size / 2}px;
                     background:rgba(200,255,0,0.22);
                     pointer-events:none; transform:scale(0);`;
-                btn.appendChild(r);
-                gsap.to(r, { scale: 1, autoAlpha: 0, duration: 0.65, ease: 'power2.out',
-                    onComplete: () => r.remove() });
+                    btn.appendChild(r);
+                    gsap.to(r, {
+                        scale: 1, autoAlpha: 0, duration: 0.65, ease: 'power2.out',
+                        onComplete: () => r.remove()
+                    });
+                });
             });
-        });
 
-    })();
+        })();
+    </script>
+
+    <!-- Skills bar animation (IntersectionObserver) -->
+    <script>
+        (function () {
+            const rows = document.querySelectorAll('.skill-row[data-pct]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const fill = entry.target.querySelector('.skill-fill');
+                        const pct = entry.target.dataset.pct;
+                        // small delay so transition is visible
+                        setTimeout(() => { fill.style.width = pct + '%'; }, 120);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            rows.forEach(r => observer.observe(r));
+        })();
+    </script>
+
+    <!-- Experience timeline line animation -->
+    <script>
+        (function () {
+            const timeline = document.getElementById('expTimeline');
+            if (!timeline) return;
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        timeline.classList.add('in-view');
+                        obs.unobserve(timeline);
+                    }
+                });
+            }, { threshold: 0.15 });
+            obs.observe(timeline);
+        })();
+    </script>
+
+    <!-- Training timeline line animation -->
+    <script>
+        (function () {
+            const tl = document.getElementById('trainingTimeline');
+            if (!tl) return;
+            const obs2 = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        tl.classList.add('in-view');
+                        obs2.unobserve(tl);
+                    }
+                });
+            }, { threshold: 0.15 });
+            obs2.observe(tl);
+        })();
     </script>
 
 </body>
